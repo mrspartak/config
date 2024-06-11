@@ -1,5 +1,5 @@
 {
-  "name": "@mrspartak/rt-config",
+  "name": "@mrspartak/config",
   "repository": "https://github.com/mrspartak/config",
   "version": "0.0.2",
   "description": "Config facade for TS",
@@ -11,7 +11,9 @@
     "build:clean": "rm -rf dist*",
     "build:web": "tsc --project tsconfig.web.json",
     "build:node": "tsc --project tsconfig.node.json",
-    "test": "pnpm build && vitest"
+    "test": "pnpm build && vitest",
+    "check:format": "biome format --write ./src",
+    "check:lint": "biome lint ./src"
   },
   "author": "Spartak Kagramanyan",
   "license": "MIT",
