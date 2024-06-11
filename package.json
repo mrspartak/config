@@ -4,7 +4,7 @@
   "version": "0.0.2",
   "description": "Config facade for TS",
   "private": false,
-  "main": "src/node.ts",
+  "main": "dist.node/node.js",
   "type": "module",
   "scripts": {
     "build": "pnpm build:clean && pnpm build:node && pnpm build:web",
@@ -27,7 +27,7 @@
   "dependencies": {
     "valibot": "^0.31.1"
   },
-  "files": ["dist.node", "dist.web"],
+  "files": ["dist.node"],
   "types": "src/type/index.d.ts",
   "engines": {
     "node": ">=18.12.0"
