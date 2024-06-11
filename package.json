@@ -1,17 +1,33 @@
 {
-  "name": "@mrspartak/config",
+  "name": "@mrspartak/rt-config",
   "repository": "https://github.com/mrspartak/config",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Config facade for TS",
-  "main": "index.js",
+  "private": false,
+  "main": "src/node.ts",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "pnpm build:clean && pnpm build:node && pnpm build:web",
+    "build:clean": "rm -rf dist*",
+    "build:web": "tsc --project tsconfig.web.json",
+    "build:node": "tsc --project tsconfig.node.json",
+    "test": "pnpm build && vitest"
   },
   "author": "Spartak Kagramanyan",
   "license": "MIT",
   "devDependencies": {
     "@biomejs/biome": "1.8.0",
+    "@types/node": "^20.14.2",
+    "lefthook": "^1.6.15",
     "typescript": "^5.4.5",
     "vitest": "^1.6.0"
+  },
+  "dependencies": {
+    "valibot": "^0.31.1"
+  },
+  "files": ["dist.node", "dist.web"],
+  "types": "src/type/index.d.ts",
+  "engines": {
+    "node": ">=18.12.0"
   }
 }

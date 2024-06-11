@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist.node",
+    "lib": ["ES2018"],
+    "types": ["node"]
+  },
+  "exclude": ["src/web.ts"]
+}
