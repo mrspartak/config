@@ -1,7 +1,7 @@
 {
   "name": "@mrspartak/config",
   "repository": "https://github.com/mrspartak/config",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Config facade for TS",
   "private": false,
   "main": "./dist/index.js",
