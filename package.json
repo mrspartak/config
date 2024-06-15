@@ -1,19 +1,19 @@
 {
   "name": "@mrspartak/config",
   "repository": "https://github.com/mrspartak/config",
-  "version": "0.0.2",
+  "version": "0.0.9",
   "description": "Config facade for TS",
   "private": false,
-  "main": "dist.node/node.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "type": "module",
   "scripts": {
-    "build": "pnpm build:clean && pnpm build:node && pnpm build:web",
+    "build": "tsup",
     "build:clean": "rm -rf dist*",
-    "build:web": "tsc --project tsconfig.web.json",
-    "build:node": "tsc --project tsconfig.node.json",
     "test": "pnpm build && vitest",
     "check:format": "biome format --write ./src",
-    "check:lint": "biome lint ./src"
+    "check:lint": "biome lint ./src",
+    "local:node": "tsx local/main.ts"
   },
   "author": "Spartak Kagramanyan",
   "license": "MIT",
@@ -21,15 +21,32 @@
     "@biomejs/biome": "1.8.0",
     "@types/node": "^20.14.2",
     "lefthook": "^1.6.15",
+    "tsup": "^8.1.0",
+    "tsx": "^4.15.4",
     "typescript": "^5.4.5",
     "vitest": "^1.6.0"
   },
   "dependencies": {
     "valibot": "^0.31.1"
   },
-  "files": ["dist.node"],
-  "types": "src/type/index.d.ts",
   "engines": {
     "node": ">=18.12.0"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "sideEffects": false,
+  "files": ["dist"],
+  "publishConfig": {
+    "access": "public"
   }
 }

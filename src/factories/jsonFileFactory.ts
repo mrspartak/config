@@ -1,16 +1,16 @@
+import type { Parser } from "../types/parser.js";
 import { Exception } from "../util/exception.js";
 import { deepMerge } from "../util/mergeObjects.js";
 import { readFile } from "../util/readFile.js";
-import type { ValibotSchemas, v } from "../util/validation.js";
 import { fromObject } from "./objectFactory.js";
 
-export async function fromJSONFile<T extends ValibotSchemas>({
+export async function fromJSONFile<$Parser extends Parser>({
   path,
   schema,
 }: {
   path: string | string[];
-  schema: T;
-}): Promise<v.InferOutput<T>> {
+  schema: $Parser;
+}) {
   const paths = Array.isArray(path) ? path : [path];
 
   /**
@@ -35,7 +35,7 @@ export async function fromJSONFile<T extends ValibotSchemas>({
   /**
    * Merge all parsed JSON objects into a single object
    */
-  const merged = deepMerge({} as T, ...parsed);
+  const merged = deepMerge({} as Record<string, unknown>, ...parsed);
 
   return fromObject({
     data: merged,

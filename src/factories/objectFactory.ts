@@ -1,11 +1,12 @@
-import { type ValibotSchemas, type v, validate } from "../util/validation.js";
+import type { Parser } from "../types/parser.js";
+import { validate } from "../util/validation.js";
 
-export async function fromObject<T extends ValibotSchemas>({
+export async function fromObject<$Parser extends Parser>({
   data,
   schema,
 }: {
-  data: Record<string, unknown>;
-  schema: T;
-}): Promise<v.InferOutput<T>> {
+  data: unknown;
+  schema: $Parser;
+}) {
   return validate(data, schema);
 }

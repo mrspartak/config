@@ -1,7 +1,6 @@
 import { fromJSONFile } from "./factories/jsonFileFactory.js";
 import { fromObject } from "./factories/objectFactory.js";
 import { fromURL } from "./factories/urlFactory.js";
-import { v } from "./util/validation.js";
 
 const Config = {
   fromJSONFile,
@@ -9,4 +8,4 @@ const Config = {
   fromURL,
 };
 
-export { Config, v };
+export { Config };

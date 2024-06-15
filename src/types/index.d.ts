@@ -1,2 +1,2 @@
-export * from "../node.js";
-export * from "./valibot.js";
+export * from "../index.js";
+export * from "./parser.js";

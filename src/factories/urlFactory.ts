@@ -1,15 +1,15 @@
+import type { Parser } from "../types/parser.js";
 import { Exception } from "../util/exception.js";
 import { deepMerge } from "../util/mergeObjects.js";
-import type { ValibotSchemas, v } from "../util/validation.js";
 import { fromObject } from "./objectFactory.js";
 
-export async function fromURL<T extends ValibotSchemas>({
+export async function fromURL<$Parser extends Parser>({
   url,
   schema,
 }: {
   url: string | string[];
-  schema: T;
-}): Promise<v.InferOutput<T>> {
+  schema: $Parser;
+}) {
   const urls = Array.isArray(url) ? url : [url];
 
   /**

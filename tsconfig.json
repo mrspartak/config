@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "./dist",
     "rootDir": "src",
     "baseUrl": ".",
     "skipLibCheck": true,
@@ -11,7 +12,9 @@
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "declaration": true
+    "declaration": true,
+    "lib": ["ES2018"],
+    "types": ["node"]
   },
   "include": ["./src/**/*"],
   "exclude": ["node_modules"]
