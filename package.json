@@ -14,7 +14,8 @@
     "check:format": "biome format --write ./src",
     "check:lint": "biome lint ./src",
     "local:node": "tsx local/main.ts",
-    "prepublish": "pnpm build"
+    "prepublishOnly": "node prepublish.js && pnpm build",
+    "release": "cross-env RELEASE_MODE=true np --no-tests"
   },
   "author": "Spartak Kagramanyan",
   "license": "MIT",
@@ -22,14 +23,13 @@
     "@biomejs/biome": "1.8.0",
     "@types/node": "^20.14.2",
     "@vitest/coverage-v8": "^1.6.0",
+    "cross-env": "^7.0.3",
     "lefthook": "^1.6.15",
+    "np": "^10.0.5",
     "tsup": "^8.1.0",
     "tsx": "^4.15.4",
     "typescript": "^5.4.5",
     "vitest": "^1.6.0"
-  },
-  "dependencies": {
-    "valibot": "^0.31.1"
   },
   "engines": {
     "node": ">=18.12.0"
