@@ -14,7 +14,7 @@
     "check:format": "biome format --write ./src",
     "check:lint": "biome lint ./src",
     "local:node": "tsx local/main.ts",
-    "prepublishOnly": "node prepublish.js && pnpm build",
+    "prepublishOnly": "node ./bin/prepublish.js && pnpm build",
     "release": "cross-env RELEASE_MODE=true np --no-tests"
   },
   "author": "Spartak Kagramanyan",
