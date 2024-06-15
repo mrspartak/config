@@ -8,7 +8,7 @@ export class Exception extends Error {
     Object.setPrototypeOf(this, Exception.prototype);
   }
 
-  static async wrap<T>(fn: () => Promise<T>, context: Record<string, unknown> = {}): Promise<T> {
+  static async wrap<T>(fn: () => Promise<T>, context: Record<string, unknown> = {}): Promise<T> | never {
     try {
       return await fn();
     } catch (e) {

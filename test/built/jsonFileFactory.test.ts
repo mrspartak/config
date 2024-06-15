@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { Config } from "../../dist.node/node.js";
+import { Config } from "../../dist/index.js";
 
 describe("fromJSONFile", () => {
   it("must be a function", () => {

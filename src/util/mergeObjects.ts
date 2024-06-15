@@ -1,8 +1,10 @@
+type UnknownObject = Record<string, unknown>;
+
 function isObject(item: unknown): boolean {
   return item !== null && typeof item === "object" && !Array.isArray(item);
 }
 
-export function deepMerge<T extends Record<string, unknown>>(target: T, ...sources: Array<Partial<T>>): T {
+export function deepMerge(target: UnknownObject, ...sources: Array<UnknownObject>) {
   if (!sources.length) return target;
   const source = sources.shift();
 

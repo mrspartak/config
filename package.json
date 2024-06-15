@@ -9,17 +9,19 @@
   "type": "module",
   "scripts": {
     "build": "tsup",
-    "build:clean": "rm -rf dist*",
-    "test": "pnpm build && vitest",
+    "test:build": "pnpm build && vitest run --dir test/built",
+    "test:src": "vitest --coverage --dir test/src",
     "check:format": "biome format --write ./src",
     "check:lint": "biome lint ./src",
-    "local:node": "tsx local/main.ts"
+    "local:node": "tsx local/main.ts",
+    "prepublish": "pnpm build"
   },
   "author": "Spartak Kagramanyan",
   "license": "MIT",
   "devDependencies": {
     "@biomejs/biome": "1.8.0",
     "@types/node": "^20.14.2",
+    "@vitest/coverage-v8": "^1.6.0",
     "lefthook": "^1.6.15",
     "tsup": "^8.1.0",
     "tsx": "^4.15.4",
