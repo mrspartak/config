@@ -2,6 +2,9 @@ import type { Parser, inferParser } from "../types/parser.js";
 
 export type ParseFn<TType> = (value: unknown) => Promise<TType> | TType;
 
+/**
+ * Get the validation function depending on the parser type
+ */
 export function getParseFn<TType>(procedureParser: Parser): ParseFn<TType> {
   const parser = procedureParser as any;
 
@@ -31,17 +34,15 @@ export function getParseFn<TType>(procedureParser: Parser): ParseFn<TType> {
     return parser.create.bind(parser);
   }
 
-  if (typeof parser.assert === "function") {
-    // ParserScaleEsque
-    return (value) => {
-      parser.assert(value);
-      return value as TType;
-    };
-  }
-
   throw new Error("Could not find a validator fn");
 }
 
+/**
+ * Validate the input against the schema
+ * This function will infer the output type from the parser
+ * @param input The input to validate
+ * @param schema The schema to validate against (must be a parser definition)
+ */
 export function validate<$Parser extends Parser>(input: unknown, schema: $Parser): inferParser<$Parser>["out"] {
   const parser = getParseFn(schema);
   return parser(input);
