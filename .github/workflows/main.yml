@@ -20,5 +20,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
+      - run: corepack enable pnpm
+      - run: corepack use pnpm@latest
       - run: pnpm i
       - run: pnpm test
