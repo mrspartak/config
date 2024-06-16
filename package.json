@@ -9,12 +9,14 @@
   "type": "module",
   "scripts": {
     "build": "tsup",
-    "test:build": "pnpm build && vitest run --dir test/built",
+    "test": "pnpm test:src:run && pnpm test:build",
+    "test:build": "vitest run --dir test/built",
     "test:src": "vitest --coverage --dir test/src",
+    "test:src:run": "vitest run --coverage --dir test/src",
     "check:format": "biome format --write ./src",
     "check:lint": "biome lint ./src",
     "local:node": "tsx local/main.ts",
-    "prepublishOnly": "node ./bin/prepublish.js && pnpm build",
+    "prepublishOnly": "node ./bin/prepublish.js && pnpm build && agadoo && pnpm test",
     "release": "cross-env RELEASE_MODE=true np --no-tests"
   },
   "author": "Spartak Kagramanyan",
@@ -23,13 +25,18 @@
     "@biomejs/biome": "1.8.0",
     "@types/node": "^20.14.2",
     "@vitest/coverage-v8": "^1.6.0",
+    "agadoo": "^3.0.0",
     "cross-env": "^7.0.3",
     "lefthook": "^1.6.15",
     "np": "^10.0.5",
+    "superstruct": "^1.0.4",
     "tsup": "^8.1.0",
     "tsx": "^4.15.4",
     "typescript": "^5.4.5",
-    "vitest": "^1.6.0"
+    "valibot": "^0.32.0",
+    "vitest": "^1.6.0",
+    "yup": "^1.4.0",
+    "zod": "^3.23.8"
   },
   "engines": {
     "node": ">=18.12.0"
