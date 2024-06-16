@@ -50,9 +50,9 @@
       "require": {
         "types": "./dist/index.d.cts",
         "default": "./dist/index.cjs"
-      },
-      "browser": "./dist/web.global.js"
-    }
+      }
+    },
+    "./web": "./dist/web.js"
   },
   "sideEffects": false,
   "files": ["dist"],

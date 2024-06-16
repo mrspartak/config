@@ -26,9 +26,10 @@ export default defineConfig([
   {
     entry: ["./src/web.ts"],
     clean: true,
-    format: ["iife"],
+    format: ["esm"],
     minify: true,
     sourcemap: true,
+    dts: true,
     outDir: "./dist",
     external: ["fs", "path", "os"],
   },
