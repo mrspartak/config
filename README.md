@@ -1,32 +1,52 @@
-# Opionated Typescript runtime configuration resolver
+# Typescript runtime configuration resolver
 
-* Runtime validation (no more deployments with the wrong configuration)
-* TS intelissense
-* Merge configurations (defaults overwrite strategy)
-* Support for JSON file/url config, Object config, [soon] ENV
-* Uses valibot for validation 
+* ⚡️ Runtime validation (no more deployments with the wrong configuration)
+* 🧙‍♂️ TypeScript intelissense
+* 🍃 Light, zero external dependencies
+* 🤲 Merge configurations (defaults overwrite strategy)
+* 👓 Support for JSON file/url config, Object config, [soon] ENV
+* 🐻 Bring your validator library of choise. We support **Zod**, **Valibot**, **Yup**, **Superstruct** etc...
+* ✅ Well-tested and production ready.
 * [soon] Works as a run-time config provider on a front-end
 
-# Usage
+## Quickstart
+```sh
+# yarn
+yarn add @mrspartak/config
+
+# npm
+npm i @mrspartak/config
+
+# pnpm
+pnpm add @mrspartak/config
+
+# bun
+bun add @mrspartak/config
+```
+
+## Usage
 
 1. Create a config resolver file
 ```ts
-import { v, Config } from "@mrspartak/config";
+import { fromJSONFile } from "@mrspartak/config";
+import * as z from "zod"
 
-export default await Config.fromJSONFile({
+const config = await fromJSONFile({
   path: ["../config/default.json", "../config/runtime.json"],
-  schema: v.object({
-    db: v.object({
-      host: v.string(),
-      port: v.number(),
-      username: v.string(),
-      password: v.string()
+  schema: z.object({
+    db: z.object({
+      host: z.string(),
+      port: zv.number(),
+      username: z.string(),
+      password: z.string()
     }),
-    app: v.object({
-      port: v.optional(v.number(), 3000)
+    app: z.object({
+      port: z.number().optional().default(3000)
     })
   }),
 });
+
+export default config
 ```
 
 2. Import resolved configuration anywhere you need
@@ -34,5 +54,5 @@ export default await Config.fromJSONFile({
 import config from 'config.js'
 import db from 'some-db-provider'
 
-const dbClient = db(config.db)
+const dbClient = db(config.db) // config.db will have full intelisense
 ```
