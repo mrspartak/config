@@ -1,6 +1,7 @@
 {
   "name": "@mrspartak/config",
   "repository": "https://github.com/mrspartak/config",
+  "homepage": "https://mrspartak.github.io/config",
   "version": "0.2.2",
   "description": "Config facade for TS",
   "private": false,

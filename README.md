@@ -1,5 +1,9 @@
 # Typescript runtime configuration resolver
 
+![GitHub Release](https://img.shields.io/github/v/release/mrspartak/config?style=for-the-badge&color=%231b1b1f)
+![npm bundle size (scoped)](https://img.shields.io/bundlephobia/min/%40mrspartak/config?style=for-the-badge&color=%231b1b1f)
+![NPM Downloads](https://img.shields.io/npm/dw/%40mrspartak%2Fconfig?style=for-the-badge&color=%231b1b1f)
+
 * ⚡️ Runtime validation (no more deployments with the wrong configuration)
 * 🧙‍♂️ TypeScript intelissense
 * 🍃 Light, zero external dependencies
