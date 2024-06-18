@@ -1,2 +1,2 @@
 export * from "../index.js";
-export * from "./parser.js";
+export * from "./validator.js";

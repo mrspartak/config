@@ -1,15 +1,15 @@
-import type { Parser } from "../types/parser.js";
+import type { Validator } from "../types/validator.js";
 import { Exception } from "../util/exception.js";
 import { deepMerge } from "../util/mergeObjects.js";
 import { readFile } from "../util/readFile.js";
 import { fromObject } from "./objectFactory.js";
 
-export async function fromJSONFile<$Parser extends Parser>({
+export async function fromJSONFile<$Validator extends Validator>({
   path,
   schema,
 }: {
   path: string | string[];
-  schema: $Parser;
+  schema: $Validator;
 }) {
   const paths = Array.isArray(path) ? path : [path];
 

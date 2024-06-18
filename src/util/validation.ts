@@ -1,49 +1,50 @@
-import type { Parser, inferParser } from "../types/parser.js";
+// KUDOS to trpc for the inspiration
 
-export type ParseFn<TType> = (value: unknown) => Promise<TType> | TType;
+import type { Validator, inferValidator } from "../types/validator.js";
+
+export type ValidatorFn<T> = (value: unknown) => Promise<T> | T;
 
 /**
  * Get the validation function depending on the parser type
  */
-export function getParseFn<TType>(procedureParser: Parser): ParseFn<TType> {
-  const parser = procedureParser as any;
+export function getValidator<T>(givenValidator: Validator): ValidatorFn<T> {
+  const v = givenValidator as any;
 
-  if (typeof parser === "function") {
-    // ParserCustomValidatorEsque
-    return parser;
+  if (typeof v === "function") {
+    return v;
   }
 
-  if (typeof parser.parseAsync === "function") {
-    // ParserZodEsque
-    return parser.parseAsync.bind(parser);
+  if (typeof v.parseAsync === "function") {
+    return v.parseAsync.bind(v);
   }
 
-  if (typeof parser.parse === "function") {
-    // ParserZodEsque
-    // ParserValibotEsque (<= v0.12.X)
-    return parser.parse.bind(parser);
+  if (typeof v.parse === "function") {
+    return v.parse.bind(v);
   }
 
-  if (typeof parser.validateSync === "function") {
-    // ParserYupEsque
-    return parser.validateSync.bind(parser);
+  if (typeof v.validateSync === "function") {
+    return v.validateSync.bind(v);
   }
 
-  if (typeof parser.create === "function") {
-    // ParserSuperstructEsque
-    return parser.create.bind(parser);
+  if (typeof v.create === "function") {
+    return v.create.bind(v);
   }
 
-  throw new Error("Could not find a validator fn");
+  throw new Error(
+    "Could not find a validator function in the given schema. We suppurt validators like zod, yup, superstruct, etc.",
+  );
 }
 
 /**
  * Validate the input against the schema
- * This function will infer the output type from the parser
+ * This function will infer the output type from the validator
  * @param input The input to validate
- * @param schema The schema to validate against (must be a parser definition)
+ * @param schema The schema to validate against (must be a validator definition)
  */
-export function validate<$Parser extends Parser>(input: unknown, schema: $Parser): inferParser<$Parser>["out"] {
-  const parser = getParseFn(schema);
-  return parser(input);
+export function validate<$Validator extends Validator>(
+  input: unknown,
+  schema: $Validator,
+): inferValidator<$Validator>["out"] {
+  const v = getValidator(schema);
+  return v(input);
 }

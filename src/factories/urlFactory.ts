@@ -1,14 +1,14 @@
-import type { Parser } from "../types/parser.js";
+import type { Validator } from "../types/validator.js";
 import { Exception } from "../util/exception.js";
 import { deepMerge } from "../util/mergeObjects.js";
 import { fromObject } from "./objectFactory.js";
 
-export async function fromURL<$Parser extends Parser>({
+export async function fromURL<$Validator extends Validator>({
   url,
   schema,
 }: {
   url: string | string[];
-  schema: $Parser;
+  schema: $Validator;
 }) {
   const urls = Array.isArray(url) ? url : [url];
 

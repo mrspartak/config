@@ -18,7 +18,7 @@ describe("fromObject", () => {
   it("should throw an error, wrong validator", () => {
     // @ts-expect-error Testing error
     expect(() => fromObject({ data: { test: "test" }, schema: { test: "test" } })).rejects.toThrowError(
-      "Could not find a validator fn",
+      "Could not find a validator function in the given schema. We suppurt validators like zod, yup, superstruct, etc.",
     );
   });
 
