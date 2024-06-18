@@ -39,6 +39,7 @@
     "typedoc": "^0.25.13",
     "typedoc-material-theme": "^1.0.2",
     "typedoc-plugin-coverage": "^3.2.0",
+    "typedoc-plugin-include-example": "^1.2.0",
     "typedoc-plugin-missing-exports": "^2.3.0",
     "typescript": "^5.4.5",
     "valibot": "^0.32.0",

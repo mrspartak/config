@@ -47,6 +47,9 @@ devDependencies:
   typedoc-plugin-coverage:
     specifier: ^3.2.0
     version: 3.2.0(typedoc@0.25.13)
+  typedoc-plugin-include-example:
+    specifier: ^1.2.0
+    version: 1.2.0(typedoc@0.25.13)
   typedoc-plugin-missing-exports:
     specifier: ^2.3.0
     version: 2.3.0(typedoc@0.25.13)
@@ -3985,6 +3988,14 @@ packages:
     engines: {node: '>= 18'}
     peerDependencies:
       typedoc: 0.25.x
+    dependencies:
+      typedoc: 0.25.13(typescript@5.4.5)
+    dev: true
+
+  /typedoc-plugin-include-example@1.2.0(typedoc@0.25.13):
+    resolution: {integrity: sha512-s6HRW9E0rvZA7JTZQW88D3+FINROIccOgpMAT1uPpGJlq76y+YTS0h692QPPX8KSPO2fTDm2EPNEozbRmv7Htw==}
+    peerDependencies:
+      typedoc: ^0.25.1
     dependencies:
       typedoc: 0.25.13(typescript@5.4.5)
     dev: true
