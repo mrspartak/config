@@ -49,7 +49,7 @@ const config = await fromJSONFile({
   schema: z.object({
     db: z.object({
       host: z.string(),
-      port: zv.number(),
+      port: z.number(),
       username: z.string(),
       password: z.string()
     }),
