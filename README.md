@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="560" src="assets/logo.svg" alt="Vite logo">
+  <img width="560" src="https://raw.githubusercontent.com/mrspartak/config/master/assets/logo.svg" alt="Vite logo">
 </p>
 <br/>
 <p align="center">
