@@ -35,6 +35,9 @@ pnpm add @mrspartak/config
 bun add @mrspartak/config
 ```
 
+## Mentions
+- [My article on how to do configurations](https://dev.to/mrspartak/mastering-web-app-configurations-without-losing-your-mind-54ha)
+
 ## Using with JSON config on a back-end
 
 > This is a recomended way of doing back-end run-time configuration. It allows to have readable structures and can be used with configmaps and secrets on deploy. 
