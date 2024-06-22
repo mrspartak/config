@@ -7,6 +7,7 @@
   <a href="https://npmjs.com/package/@mrspartak/config"><img src="https://img.shields.io/bundlephobia/min/%40mrspartak/config.svg" alt="bundle size"></a>
   <a href="https://npmjs.com/package/@mrspartak/config"><img src="https://img.shields.io/npm/dw/%40mrspartak%2Fconfig.svg" alt="downloads"></a>
   <a href="https://nodejs.org/en/about/previous-releases"><img src="https://img.shields.io/node/v/@mrspartak/config.svg" alt="node compatibility"></a>
+  <a href='https://coveralls.io/github/mrspartak/config?branch=master'><img src='https://coveralls.io/repos/github/mrspartak/config/badge.svg?branch=master' alt='Coverage Status' /></a>
 </p>
 <br/>
 
