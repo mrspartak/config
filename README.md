@@ -37,7 +37,7 @@ bun add @mrspartak/config
 ```
 
 ## Mentions
-- [My article on how to do configurations](https://dev.to/mrspartak/mastering-web-app-configurations-without-losing-your-mind-54ha)
+- [My article on how to do configurations](https://medium.com/@assorium/mastering-typescript-runtime-configurations-5dbfec90be87)
 
 ## Using with JSON config on a back-end
 
